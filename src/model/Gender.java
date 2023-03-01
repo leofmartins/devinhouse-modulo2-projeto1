@@ -1,3 +1,5 @@
+package model;
+
 enum Gender {
     female("feminino"),
     male("masculino"),

@@ -1,4 +1,6 @@
-enum MedicalSpeciality {
+package enums;
+
+public enum MedicalSpeciality {
     generalPractitioner,
     anesthetist,
     dermatologist,

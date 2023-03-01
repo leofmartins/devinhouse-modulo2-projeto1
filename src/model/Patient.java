@@ -1,3 +1,7 @@
+package model;
+
+import enums.MedicalCareStatus;
+
 import java.util.Date;
 
 class Patient extends Person {
