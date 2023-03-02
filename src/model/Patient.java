@@ -30,6 +30,10 @@ public class Patient extends Person {
         this.medicalCareStatus = medicalCareStatus;
     }
 
+    public Patient() {
+
+    }
+
     public void setMedicalCareStatus(MedicalCareStatus medicalCareStatus) {
         this.medicalCareStatus = medicalCareStatus;
     }

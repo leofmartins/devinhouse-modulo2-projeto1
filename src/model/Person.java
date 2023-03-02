@@ -20,4 +20,8 @@ class Person {
         this.cpf = cpf;
         this.phone = phone;
     }
+
+    public Person() {
+
+    }
 }
