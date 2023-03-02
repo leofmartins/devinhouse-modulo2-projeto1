@@ -1,12 +1,11 @@
 package repository;
 
 import model.Patient;
-import model.Person;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PatientRepositoryImpl implements PersonRepository {
+public class PatientRepositoryImpl implements PatientRepository {
     private static List<Patient> patientList =  new ArrayList<>();
     @Override
     public void addPatient(Patient patient) {

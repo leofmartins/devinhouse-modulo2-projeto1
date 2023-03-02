@@ -2,6 +2,6 @@ package repository;
 
 import model.Patient;
 
-public interface PersonRepository {
+public interface PatientRepository {
     void addPatient(Patient person);
 }
