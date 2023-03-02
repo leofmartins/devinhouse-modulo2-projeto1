@@ -4,6 +4,9 @@ import model.Patient;
 import repository.DoctorRepositoryImpl;
 import repository.NurseRepositoryImpl;
 import repository.PatientRepositoryImpl;
+import services.AddDoctor;
+import services.AddNurse;
+import services.AddPatient;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -36,25 +39,13 @@ class Main {
 
             switch (option) {
                 case 1 -> {
-                    Patient patient = new Patient();
-                    PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
-                    patientRepository.addPatient(patient);
-                    System.out.println("Paciente cadastrado com sucesso.");
-                    System.out.println();
+                    AddPatient.addPatient();
                 }
                 case 2 -> {
-                    Nurse nurse = new Nurse();
-                    NurseRepositoryImpl nurseRepository = new NurseRepositoryImpl();
-                    nurseRepository.addNurse(nurse);
-                    System.out.println("Enfermeiro(a) cadastrado com sucesso.");
-                    System.out.println();
+                    AddNurse.addNurse();
                 }
                 case 3 -> {
-                    Doctor doctor = new Doctor();
-                    DoctorRepositoryImpl doctorRepository = new DoctorRepositoryImpl();
-                    doctorRepository.addDoctor(doctor);
-                    System.out.println("Médico(a) cadastrado com sucesso.");
-                    System.out.println();
+                    AddDoctor.addDoctor();
                 }
             }
         }
