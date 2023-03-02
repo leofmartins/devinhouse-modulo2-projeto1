@@ -1,3 +1,8 @@
+import model.Doctor;
+import model.Nurse;
+import model.Patient;
+import repository.PatientRepositoryImpl;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -5,6 +10,7 @@ class Main {
     public static void main(String[] args) {
         int option = 0;
         Scanner scanner = new Scanner(System.in);
+        Patient person;
 
         try {
             do {
@@ -25,6 +31,20 @@ class Main {
             scanner.nextLine();
             option = scanner.nextInt();
         }
-        System.out.println(option);
+
+        switch (option) {
+            case 1:
+                person = new Patient();
+                PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
+                patientRepository.addPatient(person);
+                break;
+            case 2:
+                person = new Nurse();
+                break;
+            case 3:
+                person = new Doctor();
+        }
+
+
     }
 }
