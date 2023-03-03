@@ -3,6 +3,9 @@ package services;
 import model.Doctor;
 import repository.DoctorRepositoryImpl;
 
+import java.sql.SQLOutput;
+import java.util.Scanner;
+
 public class AddDoctor {
     public static void addDoctor() {
         Doctor doctor = new Doctor();
