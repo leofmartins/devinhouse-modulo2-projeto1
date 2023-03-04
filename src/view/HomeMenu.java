@@ -9,33 +9,41 @@ import java.util.Scanner;
 
 public class HomeMenu {
     public static void renderHomeMenu() {
-        while (true) {
-            int option = -1;
-            Scanner scanner = new Scanner(System.in);
+        int option;
 
-            try {
-                do {
-                    System.out.println("Selecione uma das opções abaixo");
-                    System.out.println("1. Cadastro do Paciente");
-                    System.out.println("2. Cadastro de Enfermeiro");
-                    System.out.println("3. Cadastro de Médico");
-                    System.out.println("4. Realização de Atendimento Médico");
-                    System.out.println("5. Atualização do Status de Atendimento do Paciente");
-                    System.out.println("6. Relatórios");
-                    System.out.println();
-                    System.out.println("Número selecionado: ");
-                    option = scanner.nextInt();
-                } while (option < 1 || option > 6);
-            } catch (InputMismatchException e) {
-                System.out.println("Opção inválida. Digite uma opção de 1 a 6.");
-                renderHomeMenu();
-            }
+        System.out.println("Selecione uma das opções abaixo");
+        System.out.println("1. Cadastro do Paciente");
+        System.out.println("2. Cadastro de Enfermeiro");
+        System.out.println("3. Cadastro de Médico");
+        System.out.println("4. Realização de Atendimento Médico");
+        System.out.println("5. Atualização do Status de Atendimento do Paciente");
+        System.out.println("6. Relatórios");
+        System.out.println();
+        System.out.println("Número selecionado: ");
 
-            switch (option) {
-                case 1 -> AddPatient.addPatient();
-                case 2 -> AddNurse.addNurse();
-                case 3 -> AddDoctor.addDoctor();
-            }
+        option = readOption();
+
+        switch (option) {
+            case 1 -> AddPatient.addPatient();
+            case 2 -> AddNurse.addNurse();
+            case 3 -> AddDoctor.addDoctor();
         }
+    }
+
+    private static int readOption() {
+        int option;
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Tentando ler a opção...");
+            option = scanner.nextInt();
+            while (option < 1 || option > 6) {
+                System.out.println("Opção inválida. Tente novamente.");
+                option = scanner.nextInt();
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Opção inválida. Tente novamente.");
+            return readOption();
+        }
+        return option;
     }
 }
