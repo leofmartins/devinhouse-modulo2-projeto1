@@ -13,10 +13,9 @@ import java.util.Scanner;
 public class AddPatient {
     public static void addPatient() {
         Patient patient = new Patient();
-        PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
-        patientRepository.addPatient(patient);
         String  name,
                 gender,
+                phone,
                 emergencyContact,
                 allergyList,
                 specialCares,
@@ -71,6 +70,10 @@ public class AddPatient {
         System.out.println("Informe o CPF: ");
         cpf = scanner.nextLine();
         patient.setCpf(cpf);
+
+        System.out.println("Informe o telefone: ");
+        phone = scanner.nextLine();
+        patient.setPhone(phone);
 
         System.out.println("Informe um contato de emergência (obrigatório): ");
         emergencyContact = scanner.nextLine();
@@ -133,6 +136,9 @@ public class AddPatient {
         }
 
         patient.incrTotalMedicalCare();
+
+        PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
+        patientRepository.addPatient(patient);
 
         System.out.println("Paciente cadastrado com sucesso.");
 
