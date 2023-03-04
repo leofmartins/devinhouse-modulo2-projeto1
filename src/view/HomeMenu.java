@@ -3,6 +3,7 @@ package view;
 import services.AddDoctor;
 import services.AddNurse;
 import services.AddPatient;
+import services.UpdateMedicalCareStatus;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -27,6 +28,7 @@ public class HomeMenu {
             case 1 -> AddPatient.addPatient();
             case 2 -> AddNurse.addNurse();
             case 3 -> AddDoctor.addDoctor();
+            case 5 -> UpdateMedicalCareStatus.updateMedicalCareStatus();
         }
     }
 
@@ -34,7 +36,6 @@ public class HomeMenu {
         int option;
         Scanner scanner = new Scanner(System.in);
         try {
-            System.out.println("Tentando ler a opção...");
             option = scanner.nextInt();
             while (option < 1 || option > 6) {
                 System.out.println("Opção inválida. Tente novamente.");

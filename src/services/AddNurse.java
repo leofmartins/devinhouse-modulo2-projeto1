@@ -4,6 +4,7 @@ import enums.PersonType;
 import model.Nurse;
 import model.Person;
 import repository.NurseRepositoryImpl;
+import view.HomeMenu;
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -29,5 +30,8 @@ public class AddNurse {
         nurseRepository.addNurse(nurse);
 
         System.out.println("Enfermeiro(a) cadastrado com sucesso.");
+        System.out.println();
+
+        HomeMenu.renderHomeMenu();
     }
 }

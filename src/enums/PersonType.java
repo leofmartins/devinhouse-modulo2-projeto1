@@ -5,7 +5,7 @@ public enum PersonType {
     nurse("Enfermeiro(a)"),
     doctor("Médico(a)");
 
-    String description;
+    final String description;
 
     PersonType(String description) {
         this.description = description;

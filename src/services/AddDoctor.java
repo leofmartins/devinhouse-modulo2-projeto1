@@ -5,6 +5,7 @@ import enums.PersonType;
 import model.Doctor;
 import model.Person;
 import repository.DoctorRepositoryImpl;
+import view.HomeMenu;
 
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -60,5 +61,7 @@ public class AddDoctor {
 
         System.out.println("Médico(a) cadastrado com sucesso.");
         System.out.println();
+
+        HomeMenu.renderHomeMenu();
     }
 }

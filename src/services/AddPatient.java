@@ -5,6 +5,7 @@ import enums.PersonType;
 import model.Patient;
 import model.Person;
 import repository.PatientRepositoryImpl;
+import view.HomeMenu;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,33 +67,20 @@ public class AddPatient {
 
             medicalCareStatusOtion = scanner.nextInt();
 
-            switch (medicalCareStatusOtion) {
-                case 1 -> {
-                    patient.setMedicalCareStatus(MedicalCareStatus.waiting);
-                    medicalCareStautusValidated = true;
-                }
-                case 2 -> {
-                    patient.setMedicalCareStatus(MedicalCareStatus.inMedicalCare);
-                    medicalCareStautusValidated = true;
-                }
-                case 3 -> {
-                    patient.setMedicalCareStatus(MedicalCareStatus.medicalCareFinalized);
-                    medicalCareStautusValidated = true;
-                }
-                case 4 -> {
-                    patient.setMedicalCareStatus(MedicalCareStatus.notAttended);
-                    medicalCareStautusValidated = true;
-                }
-                default -> System.out.print("Opção inválida. Tente novamente: ");
-            }
+            medicalCareStautusValidated = UpdateMedicalCareStatus
+                    .isMedicalCareStautusValidated(
+                            patient,
+                            medicalCareStautusValidated,
+                            medicalCareStatusOtion);
         }
 
         PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
         patientRepository.addPatient(patient);
 
         System.out.println("Paciente cadastrado com sucesso.");
-
         System.out.println();
+
+        HomeMenu.renderHomeMenu();
 
     }
 }
