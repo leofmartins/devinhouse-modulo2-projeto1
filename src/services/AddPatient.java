@@ -1,8 +1,8 @@
 package services;
 
 import enums.MedicalCareStatus;
-import model.Gender;
 import model.Patient;
+import model.Person;
 import repository.PatientRepositoryImpl;
 
 import java.text.ParseException;
@@ -11,69 +11,20 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class AddPatient {
+
     public static void addPatient() {
         Patient patient = new Patient();
-        String  name,
-                gender,
-                phone,
-                emergencyContact,
+        String  emergencyContact,
                 allergyList,
                 specialCares,
                 healthInsurance,
-                cpf,
                 healthInsuranceNumber;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy") ;
-        Date    healthInsuranceExpirationDate,
-                birthdate;
+        Date healthInsuranceExpirationDate;
         int medicalCareStatusOtion;
 
+        Person.addPerson(patient, dateFormat);
         Scanner scanner = new Scanner(System.in);
-        System.out.println("CADASTRO DE PACIENTE");
-        System.out.println();
-
-        System.out.println("Informe o nome completo do paciente: ");
-        name = scanner.nextLine();
-        patient.setName(name);
-
-        boolean genderValidated = false;
-
-        while (!genderValidated) {
-
-            System.out.println("Informe o gênero (feminino, masculino ou outro): ");
-            gender = scanner.nextLine().toLowerCase();
-
-            switch (gender) {
-                case "feminino" -> {
-                    patient.setGender(Gender.female);
-                    genderValidated = true;
-                }
-                case "masculino" -> {
-                    patient.setGender(Gender.male);
-                    genderValidated = true;
-                }
-                case "outro" -> {
-                    patient.setGender(Gender.other);
-                    genderValidated = true;
-                }
-                default -> System.out.println("Opção inválida, tente novamente.");
-            }
-        }
-
-        System.out.println("Informe a data de nascimento do paciente: ");
-        try {
-            birthdate = dateFormat.parse(scanner.nextLine());
-            patient.setBirthdate(birthdate);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-
-        System.out.println("Informe o CPF: ");
-        cpf = scanner.nextLine();
-        patient.setCpf(cpf);
-
-        System.out.println("Informe o telefone: ");
-        phone = scanner.nextLine();
-        patient.setPhone(phone);
 
         System.out.println("Informe um contato de emergência (obrigatório): ");
         emergencyContact = scanner.nextLine();

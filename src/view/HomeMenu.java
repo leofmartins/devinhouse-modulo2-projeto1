@@ -4,7 +4,6 @@ import services.AddDoctor;
 import services.AddNurse;
 import services.AddPatient;
 
-import java.text.ParseException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
