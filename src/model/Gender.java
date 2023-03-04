@@ -1,6 +1,6 @@
 package model;
 
-enum Gender {
+public enum Gender {
     female("feminino"),
     male("masculino"),
     other("outro");
