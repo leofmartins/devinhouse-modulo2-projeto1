@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class HomeMenu {
     public static void renderHomeMenu() {
         while (true) {
-            int option;
+            int option = -1;
             Scanner scanner = new Scanner(System.in);
 
             try {
@@ -25,11 +25,10 @@ public class HomeMenu {
                     System.out.println();
                     System.out.println("Número selecionado: ");
                     option = scanner.nextInt();
-                } while (option == 0);
+                } while (option < 1 || option > 6);
             } catch (InputMismatchException e) {
                 System.out.println("Opção inválida. Digite uma opção de 1 a 6.");
-                scanner.nextLine();
-                option = scanner.nextInt();
+                renderHomeMenu();
             }
 
             switch (option) {

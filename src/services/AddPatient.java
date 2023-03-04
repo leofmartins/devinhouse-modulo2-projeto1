@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class AddPatient {
 
     public static void addPatient() {
-        int personType;
         Patient patient = new Patient();
         String  emergencyContact,
                 allergyList,
