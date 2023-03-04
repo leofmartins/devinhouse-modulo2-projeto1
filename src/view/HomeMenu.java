@@ -16,7 +16,6 @@ public class HomeMenu {
 
             try {
                 do {
-                    System.out.println("Bem vindo ao sistema LABMEDICAL");
                     System.out.println("Selecione uma das opções abaixo");
                     System.out.println("1. Cadastro do Paciente");
                     System.out.println("2. Cadastro de Enfermeiro");

@@ -1,5 +1,6 @@
 package services;
 
+import enums.MedicalCareStatus;
 import model.Gender;
 import model.Patient;
 import repository.PatientRepositoryImpl;
@@ -25,6 +26,7 @@ public class AddPatient {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy") ;
         Date    healthInsuranceExpirationDate,
                 birthdate;
+        int medicalCareStatusOtion;
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("CADASTRO DE PACIENTE");
@@ -98,11 +100,37 @@ public class AddPatient {
             throw new RuntimeException(e);
         }
 
-        System.out.println("Selecione uma das opções abaixo para o status do atendimento:");
-        System.out.println("1. Aguardando atendimento");
-        System.out.println("2. Em atendimento");
-        System.out.println("3. Atendido");
-        System.out.println("4. Não atendido");
+        boolean medicalCareStautusValidated = false;
+
+        while (!medicalCareStautusValidated) {
+            System.out.println("Selecione uma das opções abaixo para o status do atendimento:");
+            System.out.println("1. Aguardando atendimento");
+            System.out.println("2. Em atendimento");
+            System.out.println("3. Atendido");
+            System.out.println("4. Não atendido");
+
+            medicalCareStatusOtion = scanner.nextInt();
+
+            switch (medicalCareStatusOtion) {
+                case 1 -> {
+                    patient.setMedicalCareStatus(MedicalCareStatus.waiting);
+                    medicalCareStautusValidated = true;
+                }
+                case 2 -> {
+                    patient.setMedicalCareStatus(MedicalCareStatus.inMedicalCare);
+                    medicalCareStautusValidated = true;
+                }
+                case 3 -> {
+                    patient.setMedicalCareStatus(MedicalCareStatus.medicalCareFinalized);
+                    medicalCareStautusValidated = true;
+                }
+                case 4 -> {
+                    patient.setMedicalCareStatus(MedicalCareStatus.notAttended);
+                    medicalCareStautusValidated = true;
+                }
+                default -> System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
 
         patient.incrTotalMedicalCare();
 
