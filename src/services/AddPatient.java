@@ -135,8 +135,6 @@ public class AddPatient {
             }
         }
 
-        patient.incrTotalMedicalCare();
-
         PatientRepositoryImpl patientRepository = new PatientRepositoryImpl();
         patientRepository.addPatient(patient);
 
