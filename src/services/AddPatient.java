@@ -80,6 +80,5 @@ public class AddPatient {
         System.out.println();
 
         HomeMenu.renderHomeMenu();
-
     }
 }

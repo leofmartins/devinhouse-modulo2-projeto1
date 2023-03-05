@@ -27,6 +27,7 @@ public class HomeMenu {
             case 3 -> AddDoctor.addDoctor();
             case 4 -> RegisterMedicalCare.registerMedicalCare();
             case 5 -> UpdateMedicalCareStatus.updateMedicalCareStatus();
+            case 6 -> Reports.getReports();
         }
     }
 

@@ -1,12 +1,16 @@
 package enums;
 
 public enum MedicalSpeciality {
-    generalPractitioner,
-    anesthetist,
-    dermatologist,
-    gynecologist,
-    neurologist,
-    pediatrician,
-    psychiatrist,
-    orthopedist
+    generalPractitioner("Clínico Geral"),
+    anesthetist("Anestesista"),
+    dermatologist("Dermatologista"),
+    gynecologist("Ginecologista"),
+    neurologist("Neurologista"),
+    pediatrician("Padiatra"),
+    psychiatrist("Psicólogo(a)"),
+    orthopedist("Ortopedista");
+
+    MedicalSpeciality(String description) {
+
+    }
 }

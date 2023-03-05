@@ -2,8 +2,6 @@ package model;
 
 import enums.MedicalSpeciality;
 
-import java.util.Date;
-
 public class Doctor extends Patient {
     String educationalInstitution;
     String crmRegistrationNumber;
@@ -11,7 +9,16 @@ public class Doctor extends Patient {
     Boolean status;
     int totalMedicalCare;
 
-    public Doctor() {};
+    public Doctor() {}
+
+    public MedicalSpeciality getMedicalSpeciality() {
+        return medicalSpeciality;
+    }
+
+    @Override
+    public int getTotalMedicalCare() {
+        return totalMedicalCare;
+    }
 
     public void setEducationalInstitution(String educationalInstitution) {
         this.educationalInstitution = educationalInstitution;

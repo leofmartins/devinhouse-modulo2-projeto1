@@ -34,25 +34,25 @@ public abstract class ListOfOptions {
 
     public static void showTypeOfPersonOptions() {
         for (int i = 0; i < typeOfPersonList.length; i++) {
-            System.out.println(i + ". " + typeOfPersonList[i]);
+            System.out.println((i + 1) + ". " + typeOfPersonList[i]);
         }
     }
 
     public static void showMedicalCareStatusOptions() {
         for (int i = 0; i < typeOfMedicalCareStatusList.length; i++) {
-            System.out.println(i + ". " + typeOfMedicalCareStatusList[i]);
+            System.out.println((i + 1) + ". " + typeOfMedicalCareStatusList[i]);
         }
     }
 
     public static void showMedicalSpecializationOptions() {
         for (int i = 0; i < typeOfMEdicalSpecializationList.length; i++) {
-            System.out.println(i + ". " + typeOfMEdicalSpecializationList[i]);
+            System.out.println((i + 1) + ". " + typeOfMEdicalSpecializationList[i]);
         }
     }
 
     public static void showReportsOptions() {
         for (int i = 0; i < typeOfReportsList.length; i++) {
-            System.out.println(i + ". " + typeOfReportsList[i]);
+            System.out.println((i + 1) + ". " + typeOfReportsList[i]);
         }
     }
 

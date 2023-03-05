@@ -20,4 +20,8 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         }
         return null;
     }
+
+    public static List<Doctor> getDoctorList() {
+        return doctorList;
+    }
 }
