@@ -13,6 +13,11 @@ public class PatientRepositoryImpl implements PatientRepository {
     }
 
     public Patient getPatient(int id) {
-        return patientList.get(id);
+        for (Patient patient:
+             patientList) {
+            if (patient.getId() == id)
+                return patient;
+        }
+        return null;
     }
 }

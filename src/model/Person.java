@@ -1,6 +1,7 @@
 package model;
 
 import enums.PersonType;
+import services.IdGenerator;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +22,7 @@ public class Person {
 
     }
 
-    public static void addPerson(Patient patient, SimpleDateFormat dateFormat, PersonType personType) {
+    public static void addPerson(Person person, SimpleDateFormat dateFormat, PersonType personType) {
         String name;
         String gender;
         Date birthdate;
@@ -29,12 +30,14 @@ public class Person {
         String phone;
         String typeOfPerson = personType.getDescription();
         Scanner scanner = new Scanner(System.in);
+        person.setId(IdGenerator.getId());
+
         System.out.printf("CADASTRO DE %s", typeOfPerson.toUpperCase());
         System.out.println();
 
         System.out.printf("Informe o nome completo do(a) %s: ", typeOfPerson);
         name = scanner.nextLine();
-        patient.setName(name);
+        person.setName(name);
 
         boolean genderValidated = false;
 
@@ -45,15 +48,15 @@ public class Person {
 
             switch (gender) {
                 case "feminino" -> {
-                    patient.setGender(Gender.female);
+                    person.setGender(Gender.female);
                     genderValidated = true;
                 }
                 case "masculino" -> {
-                    patient.setGender(Gender.male);
+                    person.setGender(Gender.male);
                     genderValidated = true;
                 }
                 case "outro" -> {
-                    patient.setGender(Gender.other);
+                    person.setGender(Gender.other);
                     genderValidated = true;
                 }
                 default -> System.out.println("Opção inválida, tente novamente.");
@@ -63,18 +66,22 @@ public class Person {
         System.out.printf("Informe a data de nascimento do(a) %s: ", typeOfPerson);
         try {
             birthdate = dateFormat.parse(scanner.nextLine());
-            patient.setBirthdate(birthdate);
+            person.setBirthdate(birthdate);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
 
         System.out.printf("Informe o CPF do(a) %s: ", typeOfPerson);
         cpf = scanner.nextLine();
-        patient.setCpf(cpf);
+        person.setCpf(cpf);
 
         System.out.printf("Informe o telefone do(a) %s: ", typeOfPerson);
         phone = scanner.nextLine();
-        patient.setPhone(phone);
+        person.setPhone(phone);
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

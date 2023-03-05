@@ -39,6 +39,7 @@ public class UpdateMedicalCareStatus {
         System.out.println();
         System.out.println("Status anterior: " + medicalCareStatusBeforeUpdate);
         System.out.println("Status atual: " + patient.getMedicalCareStatus().getDescription());
+        System.out.println();
 
         HomeMenu.renderHomeMenu();
     }

@@ -1,6 +1,5 @@
 package services;
 
-import enums.MedicalCareStatus;
 import enums.PersonType;
 import model.Patient;
 import model.Person;
@@ -26,6 +25,7 @@ public class AddPatient {
         int medicalCareStatusOtion;
 
         Person.addPerson(patient, dateFormat, PersonType.patient);
+
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Informe um contato de emergência (obrigatório): ");
