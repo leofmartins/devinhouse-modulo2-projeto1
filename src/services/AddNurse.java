@@ -6,7 +6,6 @@ import model.Person;
 import repository.NurseRepositoryImpl;
 import view.HomeMenu;
 
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class AddNurse {
@@ -14,9 +13,8 @@ public class AddNurse {
         Nurse nurse = new Nurse();
         String educationalInstitution,
                 cofenRegistrationNumber;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Scanner scanner = new Scanner(System.in);
-        Person.addPerson(nurse, dateFormat, PersonType.nurse);
+        Person.addPerson(nurse, PersonType.nurse);
 
         System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
         educationalInstitution = scanner.nextLine();

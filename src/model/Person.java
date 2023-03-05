@@ -2,9 +2,8 @@ package model;
 
 import enums.PersonType;
 import services.IdGenerator;
+import services.ReadDate;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -12,20 +11,16 @@ public class Person {
 
     private int id;
     private String name;
-    private Gender gender;
-    private Date birthdate;
     private String cpf;
-    private String phone;
     private int totalMedicalCare;
 
     public Person() {
 
     }
 
-    public static void addPerson(Person person, SimpleDateFormat dateFormat, PersonType personType) {
+    public static void addPerson(Person person, PersonType personType) {
         String name;
         String gender;
-        Date birthdate;
         String cpf;
         String phone;
         String typeOfPerson = personType.getDescription();
@@ -64,12 +59,7 @@ public class Person {
         }
 
         System.out.printf("Informe a data de nascimento do(a) %s: ", typeOfPerson);
-        try {
-            birthdate = dateFormat.parse(scanner.nextLine());
-            person.setBirthdate(birthdate);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        person.setBirthdate(ReadDate.readDate());
 
         System.out.printf("Informe o CPF do(a) %s: ", typeOfPerson);
         cpf = scanner.nextLine();
@@ -92,20 +82,10 @@ public class Person {
         this.name = name;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
     public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public Date getBirthdate() {
-        return birthdate;
     }
 
     public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
     }
 
     public String getCpf() {
@@ -116,12 +96,7 @@ public class Person {
         this.cpf = cpf;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public void incrTotalMedicalCare() {
