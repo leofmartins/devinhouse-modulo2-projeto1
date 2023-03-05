@@ -4,11 +4,11 @@
 
 ### Sumário
 
-[1. Introdução](#1-introdução)
-[2. Técnicas e tecnologias utilizadas](#2-técnicas-e-tecnologias-utilizadas)
-[3. Como rodar o programa em seu computador](#3-como-rodar-o-programa-em-seu-computador)
-[4. Futuro do projeto](#4-futuro-do-projeto)
-[5. Conclusão](#5-conclusão)
+1. [Introdução](#1-introdução)
+2. [Técnicas e tecnologias utilizadas](#2-técnicas-e-tecnologias-utilizadas)
+3. [Como rodar o programa em seu computador](#3-como-rodar-o-programa-em-seu-computador)
+4. [Futuro do projeto](#4-futuro-do-projeto)
+5. [Conclusão](#5-conclusão)
 
 ### 1. Introdução
 
