@@ -10,7 +10,13 @@ public enum MedicalSpeciality {
     psychiatrist("Psicólogo(a)"),
     orthopedist("Ortopedista");
 
-    MedicalSpeciality(String description) {
+    final String description;
 
+    MedicalSpeciality(String description) {
+       this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

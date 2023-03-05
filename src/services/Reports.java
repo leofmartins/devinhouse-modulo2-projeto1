@@ -57,9 +57,8 @@ public class Reports {
             case 3 -> {
                 System.out.println("Escolha qual a especialidade médica deseja listar: ");
                 showMedicalSpecializationOptions();
-                System.out.print((typeOfMedicalSpecializationLenth() + 1) + ". Todos");
+                System.out.print((typeOfMedicalSpecializationLenth() + 1) + ". Todos: ");
                 int typeOfMedicalSpealization = readOption(typeOfMedicalSpecializationLenth() + 1);
-                System.out.println("Código\tNome\tInstituição de Ensino\tCRM\tEspecialização");
                 switch (typeOfMedicalSpealization) {
                     case 1 -> showDoctorListFiltered(MedicalSpeciality.generalPractitioner);
                     case 2 -> showDoctorListFiltered(MedicalSpeciality.anesthetist);
@@ -167,8 +166,9 @@ public class Reports {
     }
 
     private static void showDoctorListFiltered (MedicalSpeciality medicalSpeciality) {
-        System.out.println("Lista de pessoas:");
-        System.out.println("Código\tNome\tCPF");
+        System.out.printf("Lista de médicos %s: ", medicalSpeciality.getDescription().toLowerCase());
+        System.out.println();
+        System.out.println("Código\tNome\tInstituição de Ensino\tCRM\tEspecialização");
         List<Doctor> doctorList = DoctorRepositoryImpl
                 .getDoctorList()
                 .stream()
@@ -181,9 +181,11 @@ public class Reports {
                             "\t" +
                             doctor.getName() +
                             "\t" +
-                            doctor.getHealthInsurance() +
+                            doctor.getEducationalInstitution() +
                             "\t" +
-                            doctor.getTotalMedicalCare()
+                            doctor.getCrmRegistrationNumber() +
+                            "\t" +
+                            doctor.getMedicalSpeciality().getDescription()
             );
         }
         System.out.println();
@@ -191,6 +193,8 @@ public class Reports {
 
     private static void showDoctorListFiltered() {
         List<Doctor> doctorList = DoctorRepositoryImpl.getDoctorList();
+        System.out.println();
+        System.out.println("Código\tNome\tInstituição de Ensino\tCRM\tEspecialização");
         for (Doctor doctor :
                 doctorList) {
             System.out.println(
@@ -198,9 +202,11 @@ public class Reports {
                             "\t" +
                             doctor.getName() +
                             "\t" +
-                            doctor.getHealthInsurance() +
+                            doctor.getEducationalInstitution() +
                             "\t" +
-                            doctor.getTotalMedicalCare()
+                            doctor.getCrmRegistrationNumber() +
+                            "\t" +
+                            doctor.getMedicalSpeciality().getDescription()
             );
         }
         System.out.println();

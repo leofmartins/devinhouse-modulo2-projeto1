@@ -20,6 +20,14 @@ public class Doctor extends Patient {
         return totalMedicalCare;
     }
 
+    public String getEducationalInstitution() {
+        return educationalInstitution;
+    }
+
+    public String getCrmRegistrationNumber() {
+        return crmRegistrationNumber;
+    }
+
     public void setEducationalInstitution(String educationalInstitution) {
         this.educationalInstitution = educationalInstitution;
     }
