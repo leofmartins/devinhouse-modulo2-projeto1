@@ -7,7 +7,6 @@ import model.Person;
 import repository.DoctorRepositoryImpl;
 import view.HomeMenu;
 
-import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 import static services.ListOfOptions.*;
@@ -19,9 +18,8 @@ public class AddDoctor {
                 crmRegistrationNumber;
         int medicalSpecialityOption,
             status;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Scanner scanner = new Scanner(System.in);
-        Person.addPerson(doctor, dateFormat, PersonType.doctor);
+        Person.addPerson(doctor, PersonType.doctor);
 
         System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
         educationalInstitution = scanner.nextLine();

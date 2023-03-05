@@ -31,7 +31,6 @@ public class UpdateMedicalCareStatus {
 
             medicalCareStautusValidated = isMedicalCareStautusValidated(
                     patient,
-                    false,
                     medicalCareStatusOtion);
         }
 
@@ -46,27 +45,28 @@ public class UpdateMedicalCareStatus {
 
     static boolean isMedicalCareStautusValidated(
             Patient patient,
-            boolean medicalCareStautusValidated,
             int medicalCareStatusOtion) {
         switch (medicalCareStatusOtion) {
             case 1 -> {
                 patient.setMedicalCareStatus(MedicalCareStatus.waiting);
-                medicalCareStautusValidated = true;
+                return true;
             }
             case 2 -> {
                 patient.setMedicalCareStatus(MedicalCareStatus.inMedicalCare);
-                medicalCareStautusValidated = true;
+                return true;
             }
             case 3 -> {
                 patient.setMedicalCareStatus(MedicalCareStatus.medicalCareFinalized);
-                medicalCareStautusValidated = true;
+                return true;
             }
             case 4 -> {
                 patient.setMedicalCareStatus(MedicalCareStatus.notAttended);
-                medicalCareStautusValidated = true;
+                return true;
             }
-            default -> System.out.print("Opção inválida. Tente novamente: ");
+            default -> {
+                System.out.print("Opção inválida. Tente novamente: ");
+                return false;
+            }
         }
-        return medicalCareStautusValidated;
     }
 }

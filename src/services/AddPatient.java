@@ -6,9 +6,6 @@ import model.Person;
 import repository.PatientRepositoryImpl;
 import view.HomeMenu;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Scanner;
 
 import static services.ListOfOptions.*;
@@ -23,11 +20,9 @@ public class AddPatient {
                 specialCares,
                 healthInsurance,
                 healthInsuranceNumber;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy") ;
-        Date healthInsuranceExpirationDate;
         int medicalCareStatusOtion;
 
-        Person.addPerson(patient, dateFormat, PersonType.patient);
+        Person.addPerson(patient, PersonType.patient);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -52,12 +47,7 @@ public class AddPatient {
         patient.setHealthInsuranceNumber(healthInsuranceNumber);
 
         System.out.print("Informe a validade do convênio (Enter para pular): ");
-        try {
-            healthInsuranceExpirationDate = dateFormat.parse(scanner.nextLine());
-            patient.setHealthInsuranceExpirationDate(healthInsuranceExpirationDate);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+        patient.setHealthInsuranceExpirationDate(ReadDate.readDate());
 
         boolean medicalCareStautusValidated = false;
 
@@ -69,7 +59,6 @@ public class AddPatient {
             medicalCareStautusValidated = UpdateMedicalCareStatus
                     .isMedicalCareStautusValidated(
                             patient,
-                            false,
                             medicalCareStatusOtion);
         }
 
