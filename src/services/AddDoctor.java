@@ -10,6 +10,8 @@ import view.HomeMenu;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+import static services.ListOfOptions.*;
+
 public class AddDoctor {
     public static void addDoctor() {
         Doctor doctor = new Doctor();
@@ -30,15 +32,8 @@ public class AddDoctor {
         doctor.setCrmRegistrationNumber(crmRegistrationNumber);
 
         System.out.println("Escolha a especialização (obrigatório):");
-        System.out.println("1. Clínico Geral");
-        System.out.println("2. Anestesiste");
-        System.out.println("3. Dermatologista");
-        System.out.println("4. Ginecologista");
-        System.out.println("5. Neurologista");
-        System.out.println("6. Pediatria");
-        System.out.println("7. Psiquiatria");
-        System.out.print("8. Ortopedia: ");
-        medicalSpecialityOption = scanner.nextInt();
+        showMedicalSpecializationOptions();
+        medicalSpecialityOption = ReadOptionSelected.readOption(typeOfMedicalSpecializationLenth());
         switch (medicalSpecialityOption) {
             case 1 -> doctor.setMedicalSpeciality(MedicalSpeciality.generalPractitioner);
             case 2 -> doctor.setMedicalSpeciality(MedicalSpeciality.anesthetist);

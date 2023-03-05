@@ -11,6 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
+import static services.ListOfOptions.*;
+import static services.ReadOptionSelected.readOption;
+
 public class AddPatient {
 
     public static void addPatient() {
@@ -60,17 +63,13 @@ public class AddPatient {
 
         while (!medicalCareStautusValidated) {
             System.out.println("Selecione uma das opções abaixo para o status do atendimento:");
-            System.out.println("1. Aguardando atendimento");
-            System.out.println("2. Em atendimento");
-            System.out.println("3. Atendido");
-            System.out.print("4. Não atendido: ");
-
-            medicalCareStatusOtion = scanner.nextInt();
+            showMedicalCareStatusOptions();
+            medicalCareStatusOtion = readOption(typeOfMedicalCareStatusLength());
 
             medicalCareStautusValidated = UpdateMedicalCareStatus
                     .isMedicalCareStautusValidated(
                             patient,
-                            medicalCareStautusValidated,
+                            false,
                             medicalCareStatusOtion);
         }
 
