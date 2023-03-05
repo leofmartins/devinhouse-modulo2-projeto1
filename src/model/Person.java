@@ -19,11 +19,12 @@ public class Person {
     }
 
     public static void addPerson(Person person, PersonType personType) {
-        String name;
-        String gender;
-        String cpf;
-        String phone;
-        String typeOfPerson = personType.getDescription();
+        String  name,
+                gender,
+                cpf,
+                phone,
+                typeOfPerson = personType.getDescription();
+        Date birthDate;
         Scanner scanner = new Scanner(System.in);
         person.setId(IdGenerator.getId());
 
@@ -31,7 +32,12 @@ public class Person {
         System.out.println();
 
         System.out.printf("Informe o nome completo do(a) %s: ", typeOfPerson);
-        name = scanner.nextLine();
+
+        do {
+            System.out.printf("Por favor, digite o nome do(a) %s: ", typeOfPerson);
+            name = scanner.nextLine();
+        } while (name.isEmpty());
+
         person.setName(name);
 
         boolean genderValidated = false;
@@ -58,8 +64,12 @@ public class Person {
             }
         }
 
-        System.out.printf("Informe a data de nascimento do(a) %s: ", typeOfPerson);
-        person.setBirthdate(ReadDate.readDate());
+        do {
+            System.out.printf("Informe a data de nascimento do(a) %s: ", typeOfPerson);
+            birthDate = ReadDate.readDate();
+        } while (birthDate == null);
+
+        person.setBirthdate(birthDate);
 
         System.out.printf("Informe o CPF do(a) %s: ", typeOfPerson);
         cpf = scanner.nextLine();

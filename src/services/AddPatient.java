@@ -26,8 +26,11 @@ public class AddPatient {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Informe um contato de emergência (obrigatório): ");
-        emergencyContact = scanner.nextLine();
+        do {
+            System.out.print("Informe um contato de emergência (obrigatório): ");
+            emergencyContact = scanner.nextLine();
+        } while (emergencyContact.isEmpty());
+
         patient.setEmergencyContact(emergencyContact);
 
         System.out.print("Informe as alergias (a cada uma, pressione Enter ou pressione Enter para pular): ");

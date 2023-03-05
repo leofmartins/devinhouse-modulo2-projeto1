@@ -17,7 +17,7 @@ public class HomeMenu {
         System.out.println("5. Atualização do Status de Atendimento do Paciente");
         System.out.println("6. Relatórios");
         System.out.println();
-        System.out.println("Número selecionado: ");
+        System.out.print("Número selecionado: ");
 
         option = readOption();
 
@@ -37,11 +37,11 @@ public class HomeMenu {
         try {
             option = scanner.nextInt();
             while (option < 1 || option > 6) {
-                System.out.println("Opção inválida. Tente novamente.");
+                System.out.print("Opção inválida. Tente novamente: ");
                 option = scanner.nextInt();
             }
         } catch (InputMismatchException e) {
-            System.out.println("Opção inválida. Tente novamente.");
+            System.out.print("Opção inválida. Tente novamente: ");
             return readOption();
         }
         return option;

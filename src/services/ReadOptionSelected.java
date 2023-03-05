@@ -9,11 +9,11 @@ public class ReadOptionSelected {
         int optionSelected = scanner.nextInt();
         try {
             while (optionSelected < 1 || optionSelected > maxOptionsAvailable) {
-                System.out.println("Opção inválida. Tente novamente.");
+                System.out.print("Opção inválida. Tente novamente. ");
                 optionSelected = scanner.nextInt();
             }
         } catch (InputMismatchException e) {
-            System.out.println("Opção inválida. Tente novamente.");
+            System.out.print("Opção inválida. Tente novamente. ");
             readOption(maxOptionsAvailable);
         }
         return optionSelected;

@@ -14,19 +14,25 @@ import static services.ListOfOptions.*;
 public class AddDoctor {
     public static void addDoctor() {
         Doctor doctor = new Doctor();
-        String educationalInstitution,
+        String  educationalInstitution,
                 crmRegistrationNumber;
         int medicalSpecialityOption,
             status;
         Scanner scanner = new Scanner(System.in);
         Person.addPerson(doctor, PersonType.doctor);
 
-        System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
-        educationalInstitution = scanner.nextLine();
+        do {
+            System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
+            educationalInstitution = scanner.nextLine();
+        } while (educationalInstitution.isEmpty());
+
         doctor.setEducationalInstitution(educationalInstitution);
 
-        System.out.print("Informe o cadastro do CRM/UF (obriagdório): ");
-        crmRegistrationNumber = scanner.nextLine();
+        do {
+            System.out.print("Informe o cadastro do CRM/UF (obriagdório): ");
+            crmRegistrationNumber = scanner.nextLine();
+        } while (crmRegistrationNumber.isEmpty());
+
         doctor.setCrmRegistrationNumber(crmRegistrationNumber);
 
         System.out.println("Escolha a especialização (obrigatório):");

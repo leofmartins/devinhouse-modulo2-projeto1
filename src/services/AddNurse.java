@@ -16,12 +16,18 @@ public class AddNurse {
         Scanner scanner = new Scanner(System.in);
         Person.addPerson(nurse, PersonType.nurse);
 
-        System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
-        educationalInstitution = scanner.nextLine();
+        do {
+            System.out.print("Informe a Insituição de Ensino de Formação (obrigatório): ");
+            educationalInstitution = scanner.nextLine();
+        } while (educationalInstitution.isEmpty());
+
         nurse.setEducationalInstitution(educationalInstitution);
 
-        System.out.print("Informe o cadastro do COFEN/UF: ");
-        cofenRegistrationNumber = scanner.nextLine();
+        do {
+            System.out.print("Informe o cadastro do COFEN/UF (obrigatório): ");
+            cofenRegistrationNumber = scanner.nextLine();
+        } while (cofenRegistrationNumber.isEmpty());
+
         nurse.setCofenRegistrationNumber(cofenRegistrationNumber);
 
         NurseRepositoryImpl nurseRepository = new NurseRepositoryImpl();
