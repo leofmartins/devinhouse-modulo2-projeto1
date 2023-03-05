@@ -3,6 +3,7 @@ package services;
 import enums.MedicalCareStatus;
 import model.Patient;
 import repository.PatientRepositoryImpl;
+import view.HomeMenu;
 
 import java.util.Scanner;
 
@@ -38,6 +39,8 @@ public class UpdateMedicalCareStatus {
         System.out.println();
         System.out.println("Status anterior: " + medicalCareStatusBeforeUpdate);
         System.out.println("Status atual: " + patient.getMedicalCareStatus().getDescription());
+
+        HomeMenu.renderHomeMenu();
     }
 
     static boolean isMedicalCareStautusValidated(
