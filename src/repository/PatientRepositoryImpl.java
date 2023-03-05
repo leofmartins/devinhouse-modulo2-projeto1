@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PatientRepositoryImpl implements PatientRepository {
-    private static List<Patient> patientList =  new ArrayList<>();
+    private static final List<Patient> patientList =  new ArrayList<>();
     @Override
     public void addPatient(Patient patient) {
         patientList.add(patient);
     }
 
-    public Patient getPatientList(int id) {
+    public Patient getPatient(int id) {
         return patientList.get(id);
     }
 }

@@ -11,10 +11,10 @@ public class UpdateMedicalCareStatus {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("ATUALIZAÇÃO DE STATUS DE ATENDIMENTO");
-        System.out.print("Informo o id do paciente: ");
+        System.out.print("Informe o id do paciente: ");
         int patientId = scanner.nextInt();
         PatientRepositoryImpl patientStatusUpdating = new PatientRepositoryImpl();
-        Patient patient = patientStatusUpdating.getPatientList(patientId);
+        Patient patient = patientStatusUpdating.getPatient(patientId);
         String medicalCareStatusBeforeUpdate = patient.getMedicalCareStatus().getDescription();
 
         boolean medicalCareStautusValidated = false;

@@ -1,9 +1,6 @@
 package view;
 
-import services.AddDoctor;
-import services.AddNurse;
-import services.AddPatient;
-import services.UpdateMedicalCareStatus;
+import services.*;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -28,6 +25,7 @@ public class HomeMenu {
             case 1 -> AddPatient.addPatient();
             case 2 -> AddNurse.addNurse();
             case 3 -> AddDoctor.addDoctor();
+            case 4 -> RegisterMedicalCare.registerMedicalCare();
             case 5 -> UpdateMedicalCareStatus.updateMedicalCareStatus();
         }
     }
